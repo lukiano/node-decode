@@ -1,7 +1,7 @@
 {
-  "name": "dejson",
+  "name": "decode",
   "version": "0.0.1",
-  "description": "Type-safe JSON decoding",
+  "description": "Type-safe Decoding",
   "main": "out/index.js",
   "scripts": {
     "build": "tsc",
