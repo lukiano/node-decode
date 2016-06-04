@@ -10,7 +10,7 @@ export class DecodeError extends Error {
 }
 
 export class Decoder<T> {
-  constructor(private _run: (data: Object) => T) {}
+  constructor(private _run: (data: any) => T) {}
 
   decodeObject(data: Object): T {
     return this._run(data);
@@ -38,7 +38,7 @@ export class Decoder<T> {
     return new Decoder(data => value);
   }
 
-  static get string(): Decoder<string> {
+  static get string(): Decoder<String> {
     return new Decoder(data => {
       if (data === null) {
         throw new DecodeError('data is null');
@@ -97,13 +97,13 @@ export class Decoder<T> {
       if (!Array.isArray(data)) {
         throw new DecodeError('data is not an array');
       }
-      return data.map((inner: Object) => this._run(inner));
+      return data.map((inner: any) => this._run(inner));
     });
   }
 
   at(path: Array<string>): Decoder<T> {
     return new Decoder<T>(data => {
-      const inner = path.reduce((intermediate: Object, pathComponent: string) => {
+      const inner = path.reduce((intermediate: any, pathComponent: string) => {
         return intermediate && intermediate[pathComponent];
       });
       return this._run(inner);
