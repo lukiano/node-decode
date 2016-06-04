@@ -1,6 +1,6 @@
 {
   "name": "decode",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Type-safe Decoding",
   "main": "out/index.js",
   "scripts": {
@@ -11,13 +11,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:srijs/node-dejson.git"
+    "url": "git@github.com:srijs/node-decode.git"
   },
   "devDependencies": {
     "typescript": "^1.8.7"
   },
   "typings": "out/index.d.ts",
   "bugs": {
-    "url": "https://github.com/srijs/node-dejson/issues"
+    "url": "https://github.com/srijs/node-decode/issues"
+  },
+  "dependencies": {
+    "kung-fu": "^0.1.0"
   }
 }
