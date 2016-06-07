@@ -51,7 +51,7 @@ export class Decoder<T> {
     return new Decoder(data => value);
   }
 
-  static get string(): Decoder<String> {
+  static get string(): Decoder<string> {
     return new Decoder(data => {
       if (data === null) {
         throw new DecodeError('data is null');
