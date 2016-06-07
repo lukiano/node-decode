@@ -28,6 +28,19 @@ export class Decoder<T> {
     return new Decoder(data => f(this._run(data))._run(data));
   }
 
+  reason(f: (reason: string) => string): Decoder<T> {
+    return new Decoder(data => {
+      try {
+        return this._run(data);
+      } catch (err) {
+        if (err instanceof DecodeError) {
+          throw new DecodeError(f(err.message));
+        }
+        throw err;
+      }
+    });
+  }
+
   static fail<T>(message: string): Decoder<T> {
     return new Decoder((data): T => {
       throw new DecodeError(message);
