@@ -118,7 +118,7 @@ export class Decoder<T> {
     return new Decoder<T>(data => {
       const inner = path.reduce((intermediate: any, pathComponent: string) => {
         return intermediate && intermediate[pathComponent];
-      });
+      }, data);
       return this._run(inner);
     });
   }
