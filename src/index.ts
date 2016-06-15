@@ -98,7 +98,7 @@ export class Decoder<T> {
 
   maybe(): Decoder<Option<T>> {
     return new Decoder(data => {
-      if (data === null) {
+      if (data === null || typeof data === 'undefined') {
         return Option.none<T>();
       }
       return Option.some(this._run(data));
