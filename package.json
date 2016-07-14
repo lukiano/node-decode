@@ -21,6 +21,6 @@
     "url": "https://github.com/srijs/node-decode/issues"
   },
   "dependencies": {
-    "kung-fu": "^0.1.0"
+    "kung-fu": "^0.2.0"
   }
 }
